@@ -443,17 +443,17 @@ public class Main extends javax.swing.JFrame {
         SerVivo sv = new SerVivo(nombre, poder, age, planeta, raza);
         lista.add(sv);
 
-        DefaultTableModel modelo = (DefaultTableModel) tabla1.getModel();
-        Object[] newRow = {
-            nombre,
-            poder,
-            age,
-            planeta,
-            raza
-        };
-        modelo.addRow(newRow);
-        tabla1.setModel(modelo);
-        tabla2.setModel(modelo);
+//        DefaultTableModel modelo = (DefaultTableModel) tabla1.getModel();
+//        Object[] newRow = {
+//            nombre,
+//            poder,
+//            age,
+//            planeta,
+//            raza
+//        };
+//        modelo.addRow(newRow);
+//        tabla1.setModel(modelo);
+//        tabla2.setModel(modelo);
 
         JOptionPane.showMessageDialog(jd_agregar, "Ser vivo creado exitosamente");
 
@@ -509,7 +509,7 @@ public class Main extends javax.swing.JFrame {
             u.cargarArchivo();
             String acum = "";
             for (SerVivo sv : u.getSeresVivos()) {
-                acum += u.getSeresVivos().indexOf(sv) + ">" + sv.getNombre() + "\n";
+                acum += u.getSeresVivos().indexOf(sv) + " = " + sv.getNombre() + "\n";
             }
             JOptionPane.showMessageDialog(null, acum);
             int op = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el indice que desea modificar:"));
