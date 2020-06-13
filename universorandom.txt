@@ -1,0 +1,10 @@
+daniel;8;19;Tierra;Humano
+marcos;9;21;Tierra;Humano
+david;6;19;Tierra;Amanto
+jose;7;18;Marte;Amanto
+salvador;5;16;Tierra;Humano
+carlos;4;18;Tierra;Humano
+angel;3;22;Jupiter;Amanto
+ismael;5;34;Tierra;Humano
+tomas;6;45;Tierra;Humano
+manuel;8;35;Luna de la tierra;Amanto

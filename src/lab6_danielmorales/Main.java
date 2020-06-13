@@ -57,10 +57,6 @@ public class Main extends javax.swing.JFrame {
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
         tf_poder = new javax.swing.JComboBox<>();
-        jd_visualizar = new javax.swing.JDialog();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jButton9 = new javax.swing.JButton();
         jd_modificar = new javax.swing.JDialog();
         jScrollPane2 = new javax.swing.JScrollPane();
         tabla1 = new javax.swing.JTable();
@@ -74,13 +70,13 @@ public class Main extends javax.swing.JFrame {
         jd_listarUniversos = new javax.swing.JDialog();
         jScrollPane4 = new javax.swing.JScrollPane();
         ta_verUniversos = new javax.swing.JTextArea();
-        jButton13 = new javax.swing.JButton();
-        jButton14 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
         btn_listarrrr = new javax.swing.JButton();
+        jLabel7 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
@@ -171,40 +167,6 @@ public class Main extends javax.swing.JFrame {
                 .addComponent(jButton7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 57, Short.MAX_VALUE)
                 .addComponent(jButton8)
-                .addContainerGap())
-        );
-
-        jd_visualizar.setMinimumSize(new java.awt.Dimension(600, 450));
-
-        jTextArea1.setColumns(20);
-        jTextArea1.setRows(5);
-        jScrollPane1.setViewportView(jTextArea1);
-
-        jButton9.setText("Regresar");
-        jButton9.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton9MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jd_visualizarLayout = new javax.swing.GroupLayout(jd_visualizar.getContentPane());
-        jd_visualizar.getContentPane().setLayout(jd_visualizarLayout);
-        jd_visualizarLayout.setHorizontalGroup(
-            jd_visualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_visualizarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jd_visualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 431, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton9))
-                .addContainerGap(159, Short.MAX_VALUE))
-        );
-        jd_visualizarLayout.setVerticalGroup(
-            jd_visualizarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jd_visualizarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 265, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
-                .addComponent(jButton9)
                 .addContainerGap())
         );
 
@@ -332,21 +294,19 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jd_listarUniversos.setMinimumSize(new java.awt.Dimension(500, 500));
-        jd_listarUniversos.setPreferredSize(new java.awt.Dimension(500, 500));
+        jd_listarUniversos.setMinimumSize(new java.awt.Dimension(500, 280));
+        jd_listarUniversos.setPreferredSize(new java.awt.Dimension(500, 280));
 
         ta_verUniversos.setColumns(20);
         ta_verUniversos.setRows(5);
         jScrollPane4.setViewportView(ta_verUniversos);
 
-        jButton13.setText("Modificar");
-        jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButton3.setText("Regresar");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton13MouseClicked(evt);
+                jButton3MouseClicked(evt);
             }
         });
-
-        jButton14.setText("Eliminar");
 
         javax.swing.GroupLayout jd_listarUniversosLayout = new javax.swing.GroupLayout(jd_listarUniversos.getContentPane());
         jd_listarUniversos.getContentPane().setLayout(jd_listarUniversosLayout);
@@ -357,9 +317,7 @@ public class Main extends javax.swing.JFrame {
                 .addGroup(jd_listarUniversosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
                     .addGroup(jd_listarUniversosLayout.createSequentialGroup()
-                        .addGroup(jd_listarUniversosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton13)
-                            .addComponent(jButton14))
+                        .addComponent(jButton3)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
@@ -368,17 +326,20 @@ public class Main extends javax.swing.JFrame {
             .addGroup(jd_listarUniversosLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton13)
-                .addGap(18, 18, 18)
-                .addComponent(jButton14)
-                .addContainerGap(190, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addComponent(jButton3)
+                .addContainerGap())
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(550, 500));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel1.setBackground(new java.awt.Color(0, 0, 0));
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 102, 102));
         jLabel1.setText("Bienvenido al sistema de los Shinsengumi");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 20, 410, 44));
 
         jButton1.setText("Agregar ser vivo");
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -386,6 +347,7 @@ public class Main extends javax.swing.JFrame {
                 jButton1MouseClicked(evt);
             }
         });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 86, -1, -1));
 
         jButton6.setText("Abrir universo");
         jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -393,6 +355,7 @@ public class Main extends javax.swing.JFrame {
                 jButton6MouseClicked(evt);
             }
         });
+        getContentPane().add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 168, -1, -1));
 
         jButton10.setText("Crear universo");
         jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -400,6 +363,7 @@ public class Main extends javax.swing.JFrame {
                 jButton10MouseClicked(evt);
             }
         });
+        getContentPane().add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 127, -1, -1));
 
         btn_listarrrr.setText("Visualizar universo");
         btn_listarrrr.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -407,6 +371,11 @@ public class Main extends javax.swing.JFrame {
                 btn_listarrrrMouseClicked(evt);
             }
         });
+        getContentPane().add(btn_listarrrr, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 209, -1, -1));
+
+        jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/lab6_danielmorales/Shinsengumi_group.jpg"))); // NOI18N
+        jLabel7.setText("jLabel7");
+        getContentPane().add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(-360, 0, 1040, 700));
 
         jMenu1.setText("Seres Vivos");
 
@@ -440,36 +409,6 @@ public class Main extends javax.swing.JFrame {
         jMenuBar1.add(jMenu1);
 
         setJMenuBar(jMenuBar1);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton6)
-                    .addComponent(jButton10)
-                    .addComponent(btn_listarrrr))
-                .addContainerGap(309, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton1)
-                .addGap(18, 18, 18)
-                .addComponent(jButton10)
-                .addGap(18, 18, 18)
-                .addComponent(jButton6)
-                .addGap(18, 18, 18)
-                .addComponent(btn_listarrrr)
-                .addContainerGap(247, Short.MAX_VALUE))
-        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -520,32 +459,27 @@ public class Main extends javax.swing.JFrame {
 
     }//GEN-LAST:event_jButton7MouseClicked
 
-    private void jButton9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton9MouseClicked
-        // TODO add your handling code here:
-        jd_visualizar.setVisible(false);
-    }//GEN-LAST:event_jButton9MouseClicked
-
     private void jButton10MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton10MouseClicked
         // TODO add your handling code here:
         if (lista.isEmpty()) {
             JOptionPane.showMessageDialog(this, "No hay seres vivos creados, no se puede crear Universo");
         } else {
             try {
-                JFileChooser fc = new JFileChooser();
-                FileNameExtensionFilter filtro = new FileNameExtensionFilter("Archivo de texto", "txt");
-                fc.addChoosableFileFilter(filtro);
-                int seleccion = fc.showSaveDialog(this);
+                JFileChooser filechooser = new JFileChooser();
+                FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivo de texto", "txt");
+                filechooser.addChoosableFileFilter(filter);
+                int seleccionado = filechooser.showSaveDialog(this);
                 FileWriter fw = null;
                 BufferedWriter bw = null;
-                if (seleccion == JFileChooser.APPROVE_OPTION) {
+                if (seleccionado == JFileChooser.APPROVE_OPTION) {
                     try {
-                        if (fc.getFileFilter().getDescription().equals("Archivo de texto")) {
-                            archivo = new File(fc.getSelectedFile().getPath() + ".txt");
+                        if (filechooser.getFileFilter().getDescription().equals("Archivo de texto")) {
+                            archivo = new File(filechooser.getSelectedFile().getPath() + ".txt");
                         } else {
-                            archivo = fc.getSelectedFile();
+                            archivo = filechooser.getSelectedFile();
                         }
                         Universo u = new Universo();
-                        u.adminUniverso(archivo + ".txt");
+                        u.iniciarUniverso(archivo + ".txt");
                         u.cargarArchivo();
                         for (SerVivo sv : lista) {
                             u.getSeresVivos().add(sv);
@@ -569,7 +503,70 @@ public class Main extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
-        jd_modificar.setVisible(true);
+        try {
+            Universo u = new Universo();
+            u.iniciarUniverso(archivo.getPath());
+            u.cargarArchivo();
+            String aux = "";
+            for (SerVivo sv : u.getSeresVivos()) {
+                aux += u.getSeresVivos().indexOf(sv) + ">" + sv.getNombre() + "\n";
+            }
+            JOptionPane.showMessageDialog(null, aux);
+            int op = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el indice que desea modificar"));
+            int indAMod = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el indice del dato que va a modificar:"
+                    + "\n1. Nombre"
+                    + "                     \n2. Edad"
+                    + "                     \n3. Raza"
+                    + "                     \n4. Poder"
+                    + "                     \n5. Planeta"));
+            switch (indAMod) {
+                case 1:
+                    String nuevoNombre = JOptionPane.showInputDialog("Ingrese el nuevo nombre:");
+                    u.getSeresVivos().get(op).setNombre(nuevoNombre);
+                    break;
+                case 2:
+                    try {
+                        String nuevaEdad = JOptionPane.showInputDialog("Ingrese la nueva edad:");
+                        u.getSeresVivos().get(op).setAños(nuevaEdad);
+                        u.escribirArchivo();
+                    } catch (Exception e) {
+                    }
+                    break;
+                case 3:
+                    JOptionPane.showMessageDialog(this, "1. Humano 2. Amanto");
+                    int indRaza = Integer.parseInt(JOptionPane.showInputDialog("Ingrese la nueva raza:"));
+                    String nuevaRaza = "";
+                    switch (indRaza) {
+                        case 1:
+                            nuevaRaza = "Humano";
+                            break;
+                        case 2:
+                            nuevaRaza = "Amanto";
+                            break;
+                    }
+                    u.getSeresVivos().get(op).setRaza(nuevaRaza);
+                    break;
+                case 4:
+                    int nuevoPoder = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el nuevo poder:"));
+                    while (nuevoPoder < 1 || nuevoPoder > 10) {
+                        JOptionPane.showMessageDialog(null, "1-10 solamente");
+                        nuevoPoder = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el nuevo poder:"));
+                    }
+                    u.getSeresVivos().get(op).setPoder(nuevoPoder);
+                    break;
+                case 5:
+                    String nuevoPlaneta = JOptionPane.showInputDialog("Ingrese el nuevo planeta:");
+                    u.getSeresVivos().get(op).setPlanetaProcedencia(nuevoPlaneta);
+                    break;
+                default:
+                    break;
+            }
+            JOptionPane.showMessageDialog(null, "Modificado exitosamente");
+            u.escribirArchivo();
+        } catch (IOException ex) {
+            Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        abierto = false;
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
@@ -613,7 +610,7 @@ public class Main extends javax.swing.JFrame {
         String aux = "";
         try {
             Universo u = new Universo();
-            u.adminUniverso(archivo.getPath());
+            u.iniciarUniverso(archivo.getPath());
             u.cargarArchivo();
 
             for (SerVivo sv : u.getSeresVivos()) {
@@ -645,13 +642,13 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton11MouseClicked
 
-    boolean abierto = false; 
-    
+    boolean abierto = false;
+
     private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
         // TODO add your handling code here:
         abierto = true;
         btn_listarrrr.setEnabled(true);
-        
+
         JFileChooser fc = new JFileChooser();
         fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
         int seleccion = fc.showOpenDialog(this);
@@ -673,7 +670,7 @@ public class Main extends javax.swing.JFrame {
                 }
 
                 Universo u = new Universo();
-                u.adminUniverso(archivo.getPath());
+                u.iniciarUniverso(archivo.getPath());
                 u.cargarArchivo();
                 for (SerVivo sv : u.getSeresVivos()) {
                     lista.add(sv);
@@ -696,18 +693,19 @@ public class Main extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton6MouseClicked
 
-    private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
-        // TODO add your handling code here:
-
-    }//GEN-LAST:event_jButton13MouseClicked
-
     private void btn_listarrrrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_listarrrrMouseClicked
         // TODO add your handling code here:
-        
+        if (abierto) {
             jd_listarUniversos.setVisible(true);
-        
-        
+        } else {
+            JOptionPane.showMessageDialog(this, "Necesita volver a cargar el archivo");
+        }
     }//GEN-LAST:event_btn_listarrrrMouseClicked
+
+    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
+        // TODO add your handling code here:
+        jd_listarUniversos.setVisible(false);
+    }//GEN-LAST:event_jButton3MouseClicked
 
     /**
      * @param args the command line arguments
@@ -750,35 +748,31 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
-    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
-    private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JDialog jd_agregar;
     private javax.swing.JDialog jd_eliminar;
     private javax.swing.JDialog jd_listarUniversos;
     private javax.swing.JDialog jd_modificar;
-    private javax.swing.JDialog jd_visualizar;
     private javax.swing.JTextArea ta_verUniversos;
     private javax.swing.JTable tabla1;
     private javax.swing.JTable tabla2;

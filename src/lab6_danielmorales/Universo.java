@@ -33,7 +33,7 @@ public class Universo {
         this.nombre = nombre;
     }
 
-    public void adminUniverso(String path) {
+    public void iniciarUniverso(String path) {
         archivo = new File(path);
     }
 
@@ -69,14 +69,13 @@ public class Universo {
     public void escribirArchivo() throws IOException {
         FileWriter fw = null;
         BufferedWriter bw = null;
-        String aux = "";
+        String acum = "";
         for (SerVivo sv : seresVivos) {
             try {
                 fw = new FileWriter(archivo, false);
                 bw = new BufferedWriter(fw);
-
-                aux += sv.getNombre() + ";" + sv.getPoder() + ";" + sv.getAños() + ";" + sv.getPlanetaProcedencia() + ";" + sv.getRaza() + "\n";
-                bw.write(aux);
+                acum += sv.getNombre() + ";" + sv.getPoder() + ";" + sv.getAños() + ";" + sv.getPlanetaProcedencia() + ";" + sv.getRaza() + "\n";
+                bw.write(acum);
 
             } catch (Exception ex) {
             }
@@ -94,12 +93,12 @@ public class Universo {
             fr = new FileReader(archivo);
             br = new BufferedReader(fr);
             if (archivo.exists()) {
-                String linea = "";
+                String lineBeingRead = "";
                 try {
-                    while ((linea = br.readLine()) != null) {
+                    while ((lineBeingRead = br.readLine()) != null) {
                         try {
-                            String datos[] = linea.split(";");
-                            SerVivo sv = new SerVivo(datos[0], Integer.parseInt(datos[1]), datos[2], datos[3], datos[4]);
+                            String parsedElement[] = lineBeingRead.split(";");
+                            SerVivo sv = new SerVivo(parsedElement[0], Integer.parseInt(parsedElement[1]), parsedElement[2], parsedElement[3], parsedElement[4]);
                             seresVivos.add(sv);
                         } catch (Exception ex) {
                         }
