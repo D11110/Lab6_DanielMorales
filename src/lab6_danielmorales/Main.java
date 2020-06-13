@@ -507,18 +507,18 @@ public class Main extends javax.swing.JFrame {
             Universo u = new Universo();
             u.iniciarUniverso(archivo.getPath());
             u.cargarArchivo();
-            String aux = "";
+            String acum = "";
             for (SerVivo sv : u.getSeresVivos()) {
-                aux += u.getSeresVivos().indexOf(sv) + ">" + sv.getNombre() + "\n";
+                acum += u.getSeresVivos().indexOf(sv) + ">" + sv.getNombre() + "\n";
             }
-            JOptionPane.showMessageDialog(null, aux);
-            int op = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el indice que desea modificar"));
+            JOptionPane.showMessageDialog(null, acum);
+            int op = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el indice que desea modificar:"));
             int indAMod = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el indice del dato que va a modificar:"
                     + "\n1. Nombre"
-                    + "                     \n2. Edad"
-                    + "                     \n3. Raza"
-                    + "                     \n4. Poder"
-                    + "                     \n5. Planeta"));
+                    + "\n2. Edad"
+                    + "\n3. Raza"
+                    + "\n4. Poder"
+                    + "\n5. Planeta"));
             switch (indAMod) {
                 case 1:
                     String nuevoNombre = JOptionPane.showInputDialog("Ingrese el nuevo nombre:");
@@ -571,31 +571,31 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton5MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton5MouseClicked
         // TODO add your handling code here:
-        if (tabla1.getSelectedRow() >= 0) {
-            String nombre = JOptionPane.showInputDialog(jd_modificar, "Ingrese el nombre:");
-            int poder = Integer.parseInt(JOptionPane.showInputDialog(jd_modificar, "Ingrese el poder:"));
-            String age = JOptionPane.showInputDialog(jd_modificar, "Ingrese la edad:");
-            String planeta = JOptionPane.showInputDialog(jd_modificar, "Ingrese el planeta:");
-            String raza = JOptionPane.showInputDialog(jd_modificar, "Ingrese la raza:");
-
-            SerVivo sv = new SerVivo(nombre, poder, age, planeta, raza);
-            DefaultTableModel modelo = (DefaultTableModel) tabla1.getModel();
-
-            Object[] newRow = {
-                nombre,
-                poder,
-                age,
-                planeta,
-                raza
-            };
-
-            modelo.addRow(newRow);
-            modelo.removeRow(tabla1.getSelectedRow());
-            tabla1.setModel(modelo);
-            tabla2.setModel(modelo);
-
-            JOptionPane.showMessageDialog(jd_modificar, "Elemento modificado exitosamente");
-        }
+//        if (tabla1.getSelectedRow() >= 0) {
+//            String nombre = JOptionPane.showInputDialog(jd_modificar, "Ingrese el nombre:");
+//            int poder = Integer.parseInt(JOptionPane.showInputDialog(jd_modificar, "Ingrese el poder:"));
+//            String age = JOptionPane.showInputDialog(jd_modificar, "Ingrese la edad:");
+//            String planeta = JOptionPane.showInputDialog(jd_modificar, "Ingrese el planeta:");
+//            String raza = JOptionPane.showInputDialog(jd_modificar, "Ingrese la raza:");
+//
+//            SerVivo sv = new SerVivo(nombre, poder, age, planeta, raza);
+//            DefaultTableModel modelo = (DefaultTableModel) tabla1.getModel();
+//
+//            Object[] newRow = {
+//                nombre,
+//                poder,
+//                age,
+//                planeta,
+//                raza
+//            };
+//
+//            modelo.addRow(newRow);
+//            modelo.removeRow(tabla1.getSelectedRow());
+//            tabla1.setModel(modelo);
+//            tabla2.setModel(modelo);
+//
+//            JOptionPane.showMessageDialog(jd_modificar, "Elemento modificado exitosamente");
+//        }
     }//GEN-LAST:event_jButton5MouseClicked
 
     private void jButton12MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton12MouseClicked
@@ -614,15 +614,15 @@ public class Main extends javax.swing.JFrame {
             u.cargarArchivo();
 
             for (SerVivo sv : u.getSeresVivos()) {
-                aux += u.getSeresVivos().indexOf(sv) + "->" + sv.getNombre() + "\n";
+                aux += u.getSeresVivos().indexOf(sv) + " = " + sv.getNombre() + "\n";
             }
 
             JOptionPane.showMessageDialog(this, aux);
-            int eli = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el indice a eliminar"));
+            int eli = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el indice del elemento que desea eliminar:"));
             u.getSeresVivos().remove(eli);
 
             u.escribirArchivo();
-            JOptionPane.showMessageDialog(this, "Eliminado correctamente");
+            JOptionPane.showMessageDialog(this, "Eliminado exitosamente");
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -632,14 +632,14 @@ public class Main extends javax.swing.JFrame {
 
     private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
         // TODO add your handling code here:
-        if (tabla2.getSelectedRow() >= 0) {
-            DefaultTableModel modelo = (DefaultTableModel) tabla2.getModel();
-            modelo.removeRow(tabla2.getSelectedRow());
-            tabla2.setModel(modelo);
-            tabla1.setModel(modelo);
-
-            JOptionPane.showMessageDialog(jd_eliminar, "Elemento eliminado exitosamente");
-        }
+//        if (tabla2.getSelectedRow() >= 0) {
+//            DefaultTableModel modelo = (DefaultTableModel) tabla2.getModel();
+//            modelo.removeRow(tabla2.getSelectedRow());
+//            tabla2.setModel(modelo);
+//            tabla1.setModel(modelo);
+//
+//            JOptionPane.showMessageDialog(jd_eliminar, "Elemento eliminado exitosamente");
+//        }
     }//GEN-LAST:event_jButton11MouseClicked
 
     boolean abierto = false;
