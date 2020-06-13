@@ -5,10 +5,17 @@
  */
 package lab6_danielmorales;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.io.IOException;
+import java.security.Principal;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import javax.swing.filechooser.FileNameExtensionFilter;
@@ -25,6 +32,7 @@ public class Main extends javax.swing.JFrame {
      */
     public Main() {
         initComponents();
+        btn_listarrrr.setEnabled(false);
     }
 
     /**
@@ -63,20 +71,21 @@ public class Main extends javax.swing.JFrame {
         tabla2 = new javax.swing.JTable();
         jButton11 = new javax.swing.JButton();
         jButton12 = new javax.swing.JButton();
+        jd_listarUniversos = new javax.swing.JDialog();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        ta_verUniversos = new javax.swing.JTextArea();
+        jButton13 = new javax.swing.JButton();
+        jButton14 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
+        btn_listarrrr = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
-        jMenu2 = new javax.swing.JMenu();
-        jMenuItem5 = new javax.swing.JMenuItem();
-        jMenuItem6 = new javax.swing.JMenuItem();
 
         jd_agregar.setMinimumSize(new java.awt.Dimension(350, 410));
 
@@ -166,7 +175,6 @@ public class Main extends javax.swing.JFrame {
         );
 
         jd_visualizar.setMinimumSize(new java.awt.Dimension(600, 450));
-        jd_visualizar.setPreferredSize(new java.awt.Dimension(600, 450));
 
         jTextArea1.setColumns(20);
         jTextArea1.setRows(5);
@@ -201,7 +209,6 @@ public class Main extends javax.swing.JFrame {
         );
 
         jd_modificar.setMinimumSize(new java.awt.Dimension(500, 500));
-        jd_modificar.setPreferredSize(new java.awt.Dimension(500, 500));
 
         tabla1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -264,7 +271,6 @@ public class Main extends javax.swing.JFrame {
         );
 
         jd_eliminar.setMinimumSize(new java.awt.Dimension(500, 500));
-        jd_eliminar.setPreferredSize(new java.awt.Dimension(500, 500));
 
         tabla2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -326,9 +332,51 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
+        jd_listarUniversos.setMinimumSize(new java.awt.Dimension(500, 500));
+        jd_listarUniversos.setPreferredSize(new java.awt.Dimension(500, 500));
+
+        ta_verUniversos.setColumns(20);
+        ta_verUniversos.setRows(5);
+        jScrollPane4.setViewportView(ta_verUniversos);
+
+        jButton13.setText("Modificar");
+        jButton13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton13MouseClicked(evt);
+            }
+        });
+
+        jButton14.setText("Eliminar");
+
+        javax.swing.GroupLayout jd_listarUniversosLayout = new javax.swing.GroupLayout(jd_listarUniversos.getContentPane());
+        jd_listarUniversos.getContentPane().setLayout(jd_listarUniversosLayout);
+        jd_listarUniversosLayout.setHorizontalGroup(
+            jd_listarUniversosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_listarUniversosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jd_listarUniversosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane4, javax.swing.GroupLayout.DEFAULT_SIZE, 480, Short.MAX_VALUE)
+                    .addGroup(jd_listarUniversosLayout.createSequentialGroup()
+                        .addGroup(jd_listarUniversosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton13)
+                            .addComponent(jButton14))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
+        );
+        jd_listarUniversosLayout.setVerticalGroup(
+            jd_listarUniversosLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jd_listarUniversosLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton13)
+                .addGap(18, 18, 18)
+                .addComponent(jButton14)
+                .addContainerGap(190, Short.MAX_VALUE))
+        );
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(550, 500));
-        setPreferredSize(new java.awt.Dimension(550, 500));
 
         jLabel1.setText("Bienvenido al sistema de los Shinsengumi");
 
@@ -339,26 +387,24 @@ public class Main extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Modificar ser vivo");
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+        jButton6.setText("Abrir universo");
+        jButton6.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
+                jButton6MouseClicked(evt);
             }
         });
-
-        jButton4.setText("Eliminar ser vivo");
-        jButton4.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton4MouseClicked(evt);
-            }
-        });
-
-        jButton6.setText("Abrir archivo de texto");
 
         jButton10.setText("Crear universo");
         jButton10.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton10MouseClicked(evt);
+            }
+        });
+
+        btn_listarrrr.setText("Visualizar universo");
+        btn_listarrrr.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_listarrrrMouseClicked(evt);
             }
         });
 
@@ -393,16 +439,6 @@ public class Main extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Acciones");
-
-        jMenuItem5.setText("Abrir archivo");
-        jMenu2.add(jMenuItem5);
-
-        jMenuItem6.setText("Guardar archivo");
-        jMenu2.add(jMenuItem6);
-
-        jMenuBar1.add(jMenu2);
-
         setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -413,15 +449,11 @@ public class Main extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton3)
-                        .addGap(18, 18, 18)
-                        .addComponent(jButton4))
+                    .addComponent(jButton1)
                     .addComponent(jButton6)
-                    .addComponent(jButton10))
-                .addContainerGap(165, Short.MAX_VALUE))
+                    .addComponent(jButton10)
+                    .addComponent(btn_listarrrr))
+                .addContainerGap(309, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -429,22 +461,21 @@ public class Main extends javax.swing.JFrame {
                 .addGap(24, 24, 24)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton3)
-                    .addComponent(jButton4))
+                .addComponent(jButton1)
                 .addGap(18, 18, 18)
                 .addComponent(jButton10)
                 .addGap(18, 18, 18)
                 .addComponent(jButton6)
-                .addContainerGap(288, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addComponent(btn_listarrrr)
+                .addContainerGap(247, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     ArrayList<SerVivo> lista = new ArrayList();
-    
+
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
         // TODO add your handling code here:
         jd_agregar.setVisible(true);
@@ -471,7 +502,6 @@ public class Main extends javax.swing.JFrame {
         String raza = tf_raza.getSelectedItem().toString();
 
         SerVivo sv = new SerVivo(nombre, poder, age, planeta, raza);
-        u.getSeresVivos().add(sv);
         lista.add(sv);
 
         DefaultTableModel modelo = (DefaultTableModel) tabla1.getModel();
@@ -509,14 +539,13 @@ public class Main extends javax.swing.JFrame {
                 BufferedWriter bw = null;
                 if (seleccion == JFileChooser.APPROVE_OPTION) {
                     try {
-                        File archivito = null;
                         if (fc.getFileFilter().getDescription().equals("Archivo de texto")) {
-                            archivito = new File(fc.getSelectedFile().getPath() + ".txt");
+                            archivo = new File(fc.getSelectedFile().getPath() + ".txt");
                         } else {
-                            archivito = fc.getSelectedFile();
+                            archivo = fc.getSelectedFile();
                         }
                         Universo u = new Universo();
-                        u.adminUniverso(archivito + ".txt");
+                        u.adminUniverso(archivo + ".txt");
                         u.cargarArchivo();
                         for (SerVivo sv : lista) {
                             u.getSeresVivos().add(sv);
@@ -524,11 +553,11 @@ public class Main extends javax.swing.JFrame {
                         u.escribirArchivo();
                         lista.clear();
                     } catch (Exception e) {
-                        
+
                     }
                 }
             } catch (Exception e) {
-                
+
             }
         }
     }//GEN-LAST:event_jButton10MouseClicked
@@ -537,11 +566,6 @@ public class Main extends javax.swing.JFrame {
         // TODO add your handling code here:
         jd_modificar.setVisible(false);
     }//GEN-LAST:event_jButton2MouseClicked
-
-    private void jButton3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton3MouseClicked
-        // TODO add your handling code here:
-        jd_modificar.setVisible(true);
-    }//GEN-LAST:event_jButton3MouseClicked
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
@@ -572,7 +596,7 @@ public class Main extends javax.swing.JFrame {
             modelo.removeRow(tabla1.getSelectedRow());
             tabla1.setModel(modelo);
             tabla2.setModel(modelo);
-            
+
             JOptionPane.showMessageDialog(jd_modificar, "Elemento modificado exitosamente");
         }
     }//GEN-LAST:event_jButton5MouseClicked
@@ -582,27 +606,108 @@ public class Main extends javax.swing.JFrame {
         jd_eliminar.setVisible(false);
     }//GEN-LAST:event_jButton12MouseClicked
 
-    private void jButton4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton4MouseClicked
-        // TODO add your handling code here:
-        jd_eliminar.setVisible(true);
-    }//GEN-LAST:event_jButton4MouseClicked
+    File archivo = null;
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         // TODO add your handling code here:
-        jd_eliminar.setVisible(true);
+        String aux = "";
+        try {
+            Universo u = new Universo();
+            u.adminUniverso(archivo.getPath());
+            u.cargarArchivo();
+
+            for (SerVivo sv : u.getSeresVivos()) {
+                aux += u.getSeresVivos().indexOf(sv) + "->" + sv.getNombre() + "\n";
+            }
+
+            JOptionPane.showMessageDialog(this, aux);
+            int eli = Integer.parseInt(JOptionPane.showInputDialog("Ingrese el indice a eliminar"));
+            u.getSeresVivos().remove(eli);
+
+            u.escribirArchivo();
+            JOptionPane.showMessageDialog(this, "Eliminado correctamente");
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jButton11MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton11MouseClicked
         // TODO add your handling code here:
-        if (tabla2.getSelectedRow()>=0) {
+        if (tabla2.getSelectedRow() >= 0) {
             DefaultTableModel modelo = (DefaultTableModel) tabla2.getModel();
             modelo.removeRow(tabla2.getSelectedRow());
             tabla2.setModel(modelo);
             tabla1.setModel(modelo);
-            
+
             JOptionPane.showMessageDialog(jd_eliminar, "Elemento eliminado exitosamente");
         }
     }//GEN-LAST:event_jButton11MouseClicked
+
+    boolean abierto = false; 
+    
+    private void jButton6MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton6MouseClicked
+        // TODO add your handling code here:
+        abierto = true;
+        btn_listarrrr.setEnabled(true);
+        
+        JFileChooser fc = new JFileChooser();
+        fc.setFileSelectionMode(JFileChooser.FILES_AND_DIRECTORIES);
+        int seleccion = fc.showOpenDialog(this);
+        if (seleccion == JFileChooser.APPROVE_OPTION) {
+            FileReader fr = null;
+            try {
+                archivo = fc.getSelectedFile();
+
+                ta_verUniversos.setText("");
+                if (archivo.isFile()) {
+                    fr = new FileReader(archivo);
+                    BufferedReader br = new BufferedReader(fr);
+                    String linea = "";
+                    while ((linea = br.readLine()) != null) {
+                        ta_verUniversos.append(linea);
+                        ta_verUniversos.append("\n");
+                    }
+
+                }
+
+                Universo u = new Universo();
+                u.adminUniverso(archivo.getPath());
+                u.cargarArchivo();
+                for (SerVivo sv : u.getSeresVivos()) {
+                    lista.add(sv);
+                }
+                jd_listarUniversos.setModal(true);
+                jd_listarUniversos.pack();
+                jd_listarUniversos.setLocationRelativeTo(this);
+                jd_listarUniversos.setVisible(true);
+            } catch (FileNotFoundException ex) {
+                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (IOException ex) {
+                Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+            } finally {
+                try {
+                    fr.close();
+                } catch (IOException ex) {
+                    Logger.getLogger(Principal.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        }
+    }//GEN-LAST:event_jButton6MouseClicked
+
+    private void jButton13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton13MouseClicked
+        // TODO add your handling code here:
+
+    }//GEN-LAST:event_jButton13MouseClicked
+
+    private void btn_listarrrrMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_listarrrrMouseClicked
+        // TODO add your handling code here:
+        
+            jd_listarUniversos.setVisible(true);
+        
+        
+    }//GEN-LAST:event_btn_listarrrrMouseClicked
 
     /**
      * @param args the command line arguments
@@ -640,13 +745,14 @@ public class Main extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btn_listarrrr;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton13;
+    private javax.swing.JButton jButton14;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
@@ -659,21 +765,21 @@ public class Main extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenu jMenu2;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JMenuItem jMenuItem5;
-    private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JDialog jd_agregar;
     private javax.swing.JDialog jd_eliminar;
+    private javax.swing.JDialog jd_listarUniversos;
     private javax.swing.JDialog jd_modificar;
     private javax.swing.JDialog jd_visualizar;
+    private javax.swing.JTextArea ta_verUniversos;
     private javax.swing.JTable tabla1;
     private javax.swing.JTable tabla2;
     private javax.swing.JSpinner tf_age;

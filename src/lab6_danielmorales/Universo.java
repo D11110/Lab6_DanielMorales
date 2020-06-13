@@ -32,8 +32,8 @@ public class Universo {
     public Universo(String nombre) {
         this.nombre = nombre;
     }
-    
-    public void adminUniverso(String path){
+
+    public void adminUniverso(String path) {
         archivo = new File(path);
     }
 
@@ -70,17 +70,18 @@ public class Universo {
         FileWriter fw = null;
         BufferedWriter bw = null;
         String aux = "";
-        try {
-            fw = new FileWriter(archivo, true);
-            bw = new BufferedWriter(fw);
-            for (SerVivo sv : seresVivos) {
-                aux += sv.getNombre() + "|" + sv.getPoder() + "|" + sv.getAños() + "|" + sv.getPlanetaProcedencia() + "|" + sv.getRaza() + "\n";
+        for (SerVivo sv : seresVivos) {
+            try {
+                fw = new FileWriter(archivo, false);
+                bw = new BufferedWriter(fw);
+
+                aux += sv.getNombre() + ";" + sv.getPoder() + ";" + sv.getAños() + ";" + sv.getPlanetaProcedencia() + ";" + sv.getRaza() + "\n";
                 bw.write(aux);
-                bw.newLine();
+
+            } catch (Exception ex) {
             }
-            bw.flush();
-        } catch (Exception ex) {
         }
+        bw.flush();
         bw.close();
         fw.close();
     }
@@ -97,7 +98,7 @@ public class Universo {
                 try {
                     while ((linea = br.readLine()) != null) {
                         try {
-                            String datos[] = linea.split("|");
+                            String datos[] = linea.split(";");
                             SerVivo sv = new SerVivo(datos[0], Integer.parseInt(datos[1]), datos[2], datos[3], datos[4]);
                             seresVivos.add(sv);
                         } catch (Exception ex) {
